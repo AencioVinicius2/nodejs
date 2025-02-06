@@ -9,14 +9,7 @@ app.use(
     )
 );
 
-app.get('/', (req, res) => {
-   res.send(`
-    <form action="/" method="POST">
-    Nome: <input type="text" name="nome">
-    <button>Enviar</button>
-    </form>
-    `); 
-});
+
 //:parametro(se for opcional usa o ?)
 app.get('/testes/:idUsuarios?/:parametro?', (req, res) => {
     console.log(req.params);
