@@ -1,5 +1,7 @@
 const express = require('express');
 const app = express();
+const routes = require('./routes');
+const path = require('path');
 
 app.use(
     express.urlencoded(
@@ -9,24 +11,11 @@ app.use(
     )
 );
 
+app.set('views', path(__dirname, 'src', 'view'));    
+app.set('view engine', 'ejs');
 
-//:parametro(se for opcional usa o ?)
-app.get('/testes/:idUsuarios?/:parametro?', (req, res) => {
-    console.log(req.params);
-    console.log(req.query);
-    res.send(req.query.site);
-});
 
-app.post('/', (req, res) => {
-    console.log(req.body)
-    res.send(`
-        o que você me enviou foi: ${req.body.nome}    
-    `);
-});
-
-app.get('/contato', (req, res) => {
-    res.send('Obrigado por entrar em contato');
-});
+app.use(routes);
 
 app.listen(3000, () => {
     console.log('Acessar http://localhost:3000');
