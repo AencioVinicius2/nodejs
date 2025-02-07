@@ -7,3 +7,4 @@ exports.trataPost = (req, res) => {
         'Ei, sou sua nova rota de POST.'
     );
 };
+
