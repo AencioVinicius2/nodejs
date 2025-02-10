@@ -1,5 +1,9 @@
 const express = require('express');
 const app = express();
+const mongoose = require('mongoose');
+const connectionString = 'mongodb+srv://admin:<db_password>@BASEDEDADOS.rcenh.mongodb.net/'
+mongoose.connect(connectionString);
+
 const routes = require('./routes');
 const path = require('path');
 const meuMiddleware = require('./src/middlewares/middleware');
