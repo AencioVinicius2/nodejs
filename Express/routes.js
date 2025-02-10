@@ -11,7 +11,10 @@ function meuMiddleware(req, res, next) {
 }
 
 //Rotas da home
-route.get('/', meuMiddleware, homeController.paginaInicial)
+route.get('/', meuMiddleware, homeController.paginaInicial, function(req, res, next) {
+    console.log('----')
+    console.log('ainda estou aqui...')
+})
 route.post('/', homeController.trataPost)
 
 //Rotas do contato

@@ -11,7 +11,7 @@ app.use(
     )
 );
 
-app.use(express.static(path.resolve(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.set('views', path.resolve(__dirname, 'src', 'views'));    
 app.set('view engine', 'ejs');
