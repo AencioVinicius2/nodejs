@@ -5,14 +5,31 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
+    "start": "nodemon server.js --ignore public --ignore frontend",
+    "dev": "webpack -w"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.21.2"
+    "@jridgewell/trace-mapping": "^0.3.25",
+    "commander": "^6.2.0",
+    "convert-source-map": "^2.0.0",
+    "core-js": "^3.40.0",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "fs-readdir-recursive": "^1.1.0",
+    "glob": "^7.2.0",
+    "make-dir": "^2.1.0",
+    "regenerator-runtime": "^0.14.1",
+    "slash": "^2.0.0"
   },
   "devDependencies": {
-    "nodemon": "^3.1.9"
+    "@babel/cli": "^7.26.4",
+    "@babel/core": "^7.26.7",
+    "@babel/preset-env": "^7.26.7",
+    "babel-loader": "^9.2.1",
+    "nodemon": "^3.1.9",
+    "webpack": "^5.97.1",
+    "webpack-cli": "^6.0.1"
   }
 }
