@@ -1,8 +1,12 @@
+require('dotnev').config();
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
-const connectionString = 'mongodb+srv://admin:<db_password>@BASEDEDADOS.rcenh.mongodb.net/'
-mongoose.connect(connectionString);
+mongoose.connect(process.env.CONNECTIONSTRING, {useNewUrlParser: true, useUnifiedTopology: true})
+    .then(() => {
+        console.log('Conectei a base de dados.');
+        app.emit('pronto')
+    });
 
 const routes = require('./routes');
 const path = require('path');
@@ -21,7 +25,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.set('views', path.resolve(__dirname, 'src', 'views'));    
 app.set('view engine', 'ejs');
 
-app.use(meuMiddleware)
+app.use(meuMiddleware);
 app.use(routes);
 
 app.listen(3000, () => {
