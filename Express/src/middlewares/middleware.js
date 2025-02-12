@@ -5,5 +5,6 @@ module.exports = (req, res, next) => {
         console.log('É obrigatório preencher o nome');
     }
     console.log(req.body.nome);
+    res.locals.umaVariavelLocal = 'Var local';
     next();
 };
