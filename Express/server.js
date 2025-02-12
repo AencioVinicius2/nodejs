@@ -33,7 +33,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 });
 */
 app.use(session({
-    scret: 'secreto',
+    secret: 'secreto',
     store: MongoStore.create({mongoUrl: process.env.CONNECTIONSTRING}),
     resave: false,
     saveUninitialized: false,
